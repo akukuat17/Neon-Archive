@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="neonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e90064"/>
+      <stop offset="50%" stop-color="#ff5f9e"/>
+      <stop offset="100%" stop-color="#00f3ff"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- N - sharp angular -->
+  <path d="M5 26 L5 6 L13 6 L13 26" fill="none" stroke="url(#neonGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+  <!-- E - circuit style -->
+  <path d="M16 6 L23 6 M16 16 L23 16 M16 26 L23 26 M16 6 L16 26" fill="none" stroke="url(#neonGrad)" stroke-width="2" stroke-linecap="round" filter="url(#glow)"/>
+  <!-- O - hexagon -->
+  <polygon points="26,8 30,11 30,21 26,24 22,21 22,11" fill="none" stroke="url(#neonGrad)" stroke-width="2" stroke-linejoin="round" filter="url(#glow)"/>
+  <!-- scanline accent -->
+  <line x1="2" y1="29" x2="30" y2="29" stroke="#00f3ff" stroke-width="1" stroke-dasharray="2 2" opacity="0.6"/>
+</svg>

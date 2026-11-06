@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Katalog | NEON ARCHIVE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"><link rel="icon" href="img/logo.svg"></head><body>
+<header class="navbar"><a class="logo" href="index.html"><img src="img/logo.svg" alt="" width="32" height="32">NEON ARCHIVE</a>
+<nav><a href="index.html">Beranda</a><a href="katalog.html" class=aktif>Katalog</a><a href="kontak.html">Saran & Kontak</a><a href="tentang.html">Tentang</a></nav><button id="btnTema" class="ikon" aria-label="Ganti tema">◐</button><button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button></header>
+<main><h1>Katalog Game</h1>
+<div class="alat"><input id="q" type="search" placeholder="Cari judul game" aria-label="Cari judul"><select id="fGenre" aria-label="Genre"><option value="">Semua kategori</option></select>
+<select id="fPlatform" aria-label="Platform"><option value="">Semua platform</option><option>PC</option><option>Konsol</option><option>Mobile</option></select>
+<select id="fUrut" aria-label="Urutan"><option value="rt-desc">Rating tertinggi</option><option value="rt-asc">Rating terendah</option><option value="judul">Judul A-Z</option><option value="baru">Rilis terbaru</option></select>
+<label class="cek"><input type="checkbox" id="fFav"> Favorit saja</label></div>
+<p id="info" class="info"></p><div class="grid" id="grid"></div>
+<p id="kosong" class="kosong" hidden><svg class="kosong-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg><strong>Entri tidak ditemukan</strong><p>Coba kata kunci lain, atau <button type="button" id="resetFilter">reset filter</button></p></p></main>
+<footer><p>© 2026 NEON ARCHIVE. Proyek akhir mata kuliah. Sumber gambar, trailer, dan font ada di halaman <a href="tentang.html#kredit">Tentang</a>.</p></footer>
+<script src="js/data.js"></script><script src="js/tema.js"></script><script src="js/katalog.js"></script></body></html>
