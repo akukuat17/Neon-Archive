@@ -1,16 +1,159 @@
-<!DOCTYPE html>
-<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Tentang | NEON ARCHIVE</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css"><link rel="icon" href="img/logo.svg"></head><body>
-<header class="navbar"><a class="logo" href="index.html"><img src="img/logo.svg" alt="" width="32" height="32">NEON ARCHIVE</a>
-<nav><a href="index.html">Beranda</a><a href="katalog.html">Katalog</a><a href="kontak.html">Saran & Kontak</a><a href="tentang.html" class=aktif>Tentang</a></nav><button id="btnTema" class="ikon" aria-label="Ganti tema">◐</button><button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button></header>
-<main><h1>Tentang NEON ARCHIVE</h1>
-<section><h2>Tujuan Sistem</h2><p>NEON ARCHIVE adalah arsip terkurasi 33 entri game yang dibangun atas satu prinsip: <strong>akses universal tanpa kompromi</strong>. Tidak ada batasan hardware, tidak ada kebisingan iklan, tidak ada algorithmic feed. Hanya data bersih - judul, genre, platform, rating, deskripsi teknis - yang bisa Anda cari, filter, dan simpan dalam hitungan detik.</p><p>Setiap entri diverifikasi manual. Deskripsi ditulis ulang untuk objektivitas, bukan pemasaran. Rating mengacu pada konsensus kritis dan komunitas, bukan skor toko tunggal.</p></section>
-<section><h2>Arsitektur Teknis</h2><ul><li><strong>Zero-dependency</strong>: HTML5, CSS3 (custom properties), ES5+ JS murni. Tidak ada framework, bundler, atau build step.</li><li><strong>Data-driven</strong>: 33 entri game di <code>js/data.js</code> - tambah game baru hanya edit file ini.</li><li><strong>State lokal</strong>: Favorit & riwayat di <code>localStorage</code> (kunci: <code>fav</code>, <code>recent</code>). Tema di <code>localStorage</code> (kunci: <code>tema</code>).</li><li><strong>Routing statis</strong>: <code>detail.html?id=<id></code>, <code>katalog.html?genre=<genre></code>. Navigasi full-page, tidak ada SPA router.</li><li><strong>Performa</strong>: Gambar JPG dari SteamGridDB + SVG fallback. Native lazy-loading (<code>loading=lazy</code>). Skeleton loading saat render batch.</li><li><strong>Aksesibilitas</strong>: Semantik HTML5, fokus visible, ARIA labels, kontras WCAG AA, reduced-motion support, keyboard shortcuts (<kbd>/</kbd> cari, <kbd>Esc</kbd> tutup).</li><li><strong>Modular JS</strong>: <code>data.js</code> (data), <code>tema.js</code> (theme/fav/kartu), <code>katalog.js</code> (search/filter/sort), <code>detail.js</code> (detail page), <code>form.js</code> (validasi).</li></ul></section>
-<section><h2>Desain & Estetika</h2><ul><li><strong>Tipografi</strong>: Space Grotesk (display, teknis, futuristik) + Inter (body, readable) + JetBrains Mono (data, kode).</li><li><strong>Palet Cyberpunk 2077</strong>: Dark <code>#060047</code> / <code>#B3005E</code> / <code>#E90064</code> / <code>#FF5F9E</code> + Cyan <code>#00F3FF</code> / Emas <code>#FFD700</code>. Light mode: Arasaka Corporate <code>#FDF0F8</code> base.</li><li><strong>Elemen tanda tangan</strong>: Scanline ambient animation (CSS-only, 8s loop, prefers-reduced-motion respected).</li><li><strong>Interaksi</strong>: Micro-feedback 100-380ms, cubic-bezier(0.16,1,0.3,1). Hover = elevasi + glow. Click = SFX sintetis.</li><li><strong>Komponen</strong>: Card grid responsive, genre chips filter, rating bintang 5, platform icons 16px, trailer embed 720px max-width.</li></ul></section>
-<section><h2>Operator</h2><p>Nama: Achmad Fauzan<br>NIM: 241011401175<br>Institusi: Universitas Pamulang<br>Mata Kuliah: Pemrograman Web 1</p></section>
-<section id="kredit"><h2>Sumber Data & Aset</h2><ul><li><strong>Metadata game</strong> (judul, developer, tahun rilis, platform, link resmi): halaman resmi masing-masing game & Steam Store API.</li><li><strong>Rating</strong>: Agregasi Metacritic, OpenCritic, Steam Reviews, komunitas Reddit/ResetEra. Skala 0-5 bintang (1 desimal).</li><li><strong>Poster & Screenshot</strong> (33 poster + 99 screenshot): Diunduh dari SteamGridDB (CC0/personal use). Format JPG: poster 600x900, screenshot 1920x620. Fallback SVG vektorial jika belum tersedia.</li><li><strong>Trailer</strong>: YouTube embed via youtube-nocookie.com (privacy-enhanced). URL di <code>trailerUrl</code> pada <code>js/data.js</code>.</li><li><strong>Tipografi</strong>: Space Grotesk, Inter, JetBrains Mono via Google Fonts (SIL Open Font License).</li><li><strong>Audio klik</strong>: Sintesis Web Audio API (oscillator + envelope), file <code>media/audio/klik.wav</code> placeholder.</li><li><strong>Ikon UI</strong>: SVG inline (materi desain sistem), tidak pakai font ikon eksternal.</li><li><strong>Palet Warna</strong>: Cyberpunk 2077 - <code>#060047</code> / <code>#B3005E</code> / <code>#E90064</code> / <code>#FF5F9E</code> + Cyan <code>#00F3FF</code> / Emas <code>#FFD700</code>.</li></ul></section></main>
-<footer><p>© 2026 NEON ARCHIVE. Proyek akhir mata kuliah. Sumber gambar, trailer, dan font ada di halaman <a href="tentang.html#kredit">Tentang</a>.</p></footer>
-<script src="js/data.js"></script><script src="js/tema.js"></script></body></html>
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Tentang | NEON ARCHIVE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="img/logo.svg" />
+  </head>
+  <body>
+    <header class="navbar">
+      <a class="logo" href="index.html"
+        ><img src="img/logo.svg" alt="" width="32" height="32" />NEON ARCHIVE</a
+      >
+      <nav>
+        <a href="index.html">Beranda</a><a href="katalog.html">Katalog</a
+        ><a href="kontak.html">Saran & Kontak</a><a href="tentang.html" class="aktif">Tentang</a>
+      </nav>
+      <button id="btnTema" class="ikon" aria-label="Ganti tema">◐</button
+      ><button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    </header>
+    <main>
+      <h1>Tentang NEON ARCHIVE</h1>
+      <section>
+        <h2>Tujuan Sistem</h2>
+        <p>
+          NEON ARCHIVE adalah arsip terkurasi 33 entri game yang dibangun atas satu prinsip:
+          <strong>akses universal tanpa kompromi</strong>. Tidak ada batasan hardware, tidak ada kebisingan
+          iklan, tidak ada algorithmic feed. Hanya data bersih - judul, genre, platform, rating, deskripsi
+          teknis - yang bisa Anda cari, filter, dan simpan dalam hitungan detik.
+        </p>
+        <p>
+          Setiap entri diverifikasi manual. Deskripsi ditulis ulang untuk objektivitas, bukan pemasaran.
+          Rating mengacu pada konsensus kritis dan komunitas, bukan skor toko tunggal.
+        </p>
+      </section>
+      <section>
+        <h2>Arsitektur Teknis</h2>
+        <ul>
+          <li>
+            <strong>Zero-dependency</strong>: HTML5, CSS3 (custom properties), ES5+ JS murni. Tidak ada
+            framework, bundler, atau build step.
+          </li>
+          <li>
+            <strong>Data-driven</strong>: 33 entri game di <code>js/data.js</code> - tambah game baru hanya
+            edit file ini.
+          </li>
+          <li>
+            <strong>State lokal</strong>: Favorit & riwayat di <code>localStorage</code> (kunci:
+            <code>fav</code>, <code>recent</code>). Tema di <code>localStorage</code> (kunci:
+            <code>tema</code>).
+          </li>
+          <li>
+            <strong>Routing statis</strong>: <code>detail.html?id=&lt;id&gt;</code>,
+            <code>katalog.html?genre=&lt;genre&gt;</code>. Navigasi full-page, tidak ada SPA router.
+          </li>
+          <li>
+            <strong>Performa</strong>: Gambar JPG dari SteamGridDB + SVG fallback. Native lazy-loading
+            (<code>loading=lazy</code>). Skeleton loading saat render batch.
+          </li>
+          <li>
+            <strong>Aksesibilitas</strong>: Semantik HTML5, fokus visible, ARIA labels, kontras WCAG AA,
+            reduced-motion support, keyboard shortcuts (<kbd>/</kbd> cari, <kbd>Esc</kbd> tutup).
+          </li>
+          <li>
+            <strong>Modular JS</strong>: <code>data.js</code> (data), <code>tema.js</code> (theme/fav/kartu),
+            <code>katalog.js</code> (search/filter/sort), <code>detail.js</code> (detail page),
+            <code>form.js</code> (validasi).
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h2>Desain & Estetika</h2>
+        <ul>
+          <li>
+            <strong>Tipografi</strong>: Space Grotesk (display, teknis, futuristik) + Inter (body, readable) +
+            JetBrains Mono (data, kode).
+          </li>
+          <li>
+            <strong>Palet Cyberpunk 2077</strong>: Dark <code>#060047</code> / <code>#B3005E</code> /
+            <code>#E90064</code> / <code>#FF5F9E</code> + Cyan <code>#00F3FF</code> / Emas
+            <code>#FFD700</code>. Light mode: Arasaka Corporate <code>#FDF0F8</code> base.
+          </li>
+          <li>
+            <strong>Elemen tanda tangan</strong>: Scanline ambient animation (CSS-only, 8s loop,
+            prefers-reduced-motion respected).
+          </li>
+          <li>
+            <strong>Interaksi</strong>: Micro-feedback 100-380ms, cubic-bezier(0.16,1,0.3,1). Hover = elevasi
+            + glow. Click = SFX sintetis.
+          </li>
+          <li>
+            <strong>Komponen</strong>: Card grid responsive, genre chips filter, rating bintang 5, platform
+            icons 16px, trailer embed 720px max-width.
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h2>Operator</h2>
+        <p>
+          Nama: Achmad Fauzan<br />NIM: 241011401175<br />Institusi: Universitas Pamulang<br />Mata Kuliah:
+          Pemrograman Web 1
+        </p>
+      </section>
+      <section id="kredit">
+        <h2>Sumber Data & Aset</h2>
+        <ul>
+          <li>
+            <strong>Metadata game</strong> (judul, developer, tahun rilis, platform, link resmi): halaman
+            resmi masing-masing game & Steam Store API.
+          </li>
+          <li>
+            <strong>Rating</strong>: Agregasi Metacritic, OpenCritic, Steam Reviews, komunitas
+            Reddit/ResetEra. Skala 0-5 bintang (1 desimal).
+          </li>
+          <li>
+            <strong>Poster & Screenshot</strong> (33 poster + 99 screenshot): Diunduh dari SteamGridDB
+            (CC0/personal use). Format JPG: poster 600x900, screenshot 1920x620. Fallback SVG vektorial jika
+            belum tersedia.
+          </li>
+          <li>
+            <strong>Trailer</strong>: YouTube embed via youtube-nocookie.com (privacy-enhanced). URL di
+            <code>trailerUrl</code> pada <code>js/data.js</code>.
+          </li>
+          <li>
+            <strong>Tipografi</strong>: Space Grotesk, Inter, JetBrains Mono via Google Fonts (SIL Open Font
+            License).
+          </li>
+          <li>
+            <strong>Audio klik</strong>: Sintesis Web Audio API (oscillator + envelope), file
+            <code>media/audio/klik.wav</code> placeholder.
+          </li>
+          <li>
+            <strong>Ikon UI</strong>: SVG inline (materi desain sistem), tidak pakai font ikon eksternal.
+          </li>
+          <li>
+            <strong>Palet Warna</strong>: Cyberpunk 2077 - <code>#060047</code> / <code>#B3005E</code> /
+            <code>#E90064</code> / <code>#FF5F9E</code> + Cyan <code>#00F3FF</code> / Emas
+            <code>#FFD700</code>.
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <p>
+        © 2026 NEON ARCHIVE. Proyek akhir mata kuliah. Sumber gambar, trailer, dan font ada di halaman
+        <a href="tentang.html#kredit">Tentang</a>.
+      </p>
+    </footer>
+    <script src="js/data.js"></script>
+    <script src="js/tema.js"></script>
+  </body>
+</html>

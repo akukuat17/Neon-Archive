@@ -1,11 +1,89 @@
-<!DOCTYPE html>
-<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Saran & Kontak | NEON ARCHIVE</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css"><link rel="icon" href="img/logo.svg"></head><body>
-<header class="navbar"><a class="logo" href="index.html"><img src="img/logo.svg" alt="" width="32" height="32">NEON ARCHIVE</a>
-<nav><a href="index.html">Beranda</a><a href="katalog.html">Katalog</a><a href="kontak.html" class=aktif>Saran & Kontak</a><a href="tentang.html">Tentang</a></nav><button id="btnTema" class="ikon" aria-label="Ganti tema">◐</button><button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button></header>
-<main><h1>Saran & Kontak</h1><div class="duaform"><form data-form novalidate id="saran"><h2>Saran Game Baru</h2><div class="fld"><label for="saran-nama">Nama</label><input id="saran-nama" name="nama" type="text" required data-min="2"><span class="err"></span></div><div class="fld"><label for="saran-email">Email</label><input id="saran-email" name="email" type="email" required data-min="0"><span class="err"></span></div><div class="fld"><label for="saran-judul">Judul Game</label><input id="saran-judul" name="judul" type="text" required data-min="2"><span class="err"></span></div><div class="fld"><label for="saran-alasan">Alasan / Deskripsi</label><textarea id="saran-alasan" name="alasan" rows="4" required data-min="10"></textarea><span class="err"></span></div><button class="btn" type="submit">Kirim Saran</button><p class="sukses" hidden>Saran diterima. Terima kasih.</p></form><form data-form novalidate id="kontak"><h2>Kontak Langsung</h2><div class="fld"><label for="kontak-nama">Nama</label><input id="kontak-nama" name="nama" type="text" required data-min="2"><span class="err"></span></div><div class="fld"><label for="kontak-email">Email</label><input id="kontak-email" name="email" type="email" required data-min="0"><span class="err"></span></div><div class="fld"><label for="kontak-pesan">Pesan</label><textarea id="kontak-pesan" name="pesan" rows="4" required data-min="10"></textarea><span class="err"></span></div><button class="btn" type="submit">Kirim Pesan</button><p class="sukses" hidden>Pesan terkirim. Terima kasih.</p></form></div></main>
-<footer><p>© 2026 NEON ARCHIVE. Proyek akhir mata kuliah. Sumber gambar, trailer, dan font ada di halaman <a href="tentang.html#kredit">Tentang</a>.</p></footer>
-<script src="js/data.js"></script><script src="js/tema.js"></script><script src="js/form.js"></script></body></html>
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Saran & Kontak | NEON ARCHIVE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="img/logo.svg" />
+  </head>
+  <body>
+    <header class="navbar">
+      <a class="logo" href="index.html"
+        ><img src="img/logo.svg" alt="" width="32" height="32" />NEON ARCHIVE</a
+      >
+      <nav>
+        <a href="index.html">Beranda</a><a href="katalog.html">Katalog</a
+        ><a href="kontak.html" class="aktif">Saran & Kontak</a><a href="tentang.html">Tentang</a>
+      </nav>
+      <button id="btnTema" class="ikon" aria-label="Ganti tema">◐</button
+      ><button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    </header>
+    <main>
+      <h1>Saran & Kontak</h1>
+      <div class="duaform">
+        <form data-form novalidate id="saran">
+          <h2>Saran Game Baru</h2>
+          <div class="fld">
+            <label for="saran-nama">Nama</label
+            ><input id="saran-nama" name="nama" type="text" required data-min="2" /><span class="err"></span>
+          </div>
+          <div class="fld">
+            <label for="saran-email">Email</label
+            ><input id="saran-email" name="email" type="email" required data-min="0" /><span
+              class="err"
+            ></span>
+          </div>
+          <div class="fld">
+            <label for="saran-judul">Judul Game</label
+            ><input id="saran-judul" name="judul" type="text" required data-min="2" /><span
+              class="err"
+            ></span>
+          </div>
+          <div class="fld">
+            <label for="saran-alasan">Alasan / Deskripsi</label
+            ><textarea id="saran-alasan" name="alasan" rows="4" required data-min="10"></textarea
+            ><span class="err"></span>
+          </div>
+          <button class="btn" type="submit">Kirim Saran</button>
+          <p class="sukses" hidden>Saran diterima. Terima kasih.</p>
+        </form>
+        <form data-form novalidate id="kontak">
+          <h2>Kontak Langsung</h2>
+          <div class="fld">
+            <label for="kontak-nama">Nama</label
+            ><input id="kontak-nama" name="nama" type="text" required data-min="2" /><span class="err"></span>
+          </div>
+          <div class="fld">
+            <label for="kontak-email">Email</label
+            ><input id="kontak-email" name="email" type="email" required data-min="0" /><span
+              class="err"
+            ></span>
+          </div>
+          <div class="fld">
+            <label for="kontak-pesan">Pesan</label
+            ><textarea id="kontak-pesan" name="pesan" rows="4" required data-min="10"></textarea
+            ><span class="err"></span>
+          </div>
+          <button class="btn" type="submit">Kirim Pesan</button>
+          <p class="sukses" hidden>Pesan terkirim. Terima kasih.</p>
+        </form>
+      </div>
+    </main>
+    <footer>
+      <p>
+        © 2026 NEON ARCHIVE. Proyek akhir mata kuliah. Sumber gambar, trailer, dan font ada di halaman
+        <a href="tentang.html#kredit">Tentang</a>.
+      </p>
+    </footer>
+    <script src="js/data.js"></script>
+    <script src="js/tema.js"></script>
+    <script src="js/form.js"></script>
+  </body>
+</html>
